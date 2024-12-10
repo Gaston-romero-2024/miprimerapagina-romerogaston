@@ -1,0 +1,37 @@
+{% extends "appcore/inicio.html" %}
+{% block content %}
+<style>
+    .boton {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0602ff;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;  /* Eliminar subrayado del enlace */
+        font-size: 16px;
+    }
+    .boton:hover {
+        background-color: #050052;
+    }
+h3{
+    text-align: center;
+}
+ul{ 
+        list-style-type: none;
+        font-family: Arial, Helvetica, sans-serif;
+        
+    }
+</style>
+<a href="{% url 'creaserie'%}" class="boton">Ingresar Serie</a>
+<h3>"Listado de Series"</h3>
+{% for serie in lista_series %}
+<ul>
+    <li>TIPO: {{serie.tipo}}</li>
+    <li>NOMBRE: {{serie.nombre}}</li>
+    <li>DURACION: {{serie.duracion}}</li>
+    <li>GENERO: {{serie.genero}}</li>
+    <li>CALIFICACION: {{serie.calificacion}}</li>
+</ul>
+{% endfor %}
+{% endblock %}

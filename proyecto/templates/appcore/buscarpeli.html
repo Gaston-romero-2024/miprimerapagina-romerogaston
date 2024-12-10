@@ -1,0 +1,40 @@
+{% extends "appcore/inicio.html" %}
+{% block content %}
+<style>
+    h3{
+        text-align: center;
+
+    }
+    form {
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #0840fa;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+</style>
+<h3>"Buscar Pelicula"</h3>
+<form method="get" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Buscar</button>
+</form>
+<p>Resultados de la búsqueda:</p>
+    {% if resultados %}
+        <ul>
+            {% for resultado in resultados %}
+                <li>{{ resultado.nombre }}</li> 
+             {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+{% endblock %}

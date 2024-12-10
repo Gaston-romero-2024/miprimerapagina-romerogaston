@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Plantilla</title>
+    <style>
+        body {
+            background-color: #a4d6ff; 
+            font-family: Arial, sans-serif;
+        }
+        /* Formato para el título h1 */
+        h1 {
+            font-size: 36px;
+            color: #2c3e50; /* Color oscuro */
+            text-align: center; /* Centra el título */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+        }
+
+        /* Formato para el título h2 */
+        h2 {
+            font-size: 28px;
+            color: #e74c3c; /* Color rojo */
+            font-family: 'Arial', sans-serif;
+            text-align: left;
+            font-weight: bold; /* Negrita */
+        }
+
+        nav {
+            background-color: #7cb3bd; /* Fondo oscuro para la barra de navegación */
+            padding: 5px 0; /* Espaciado arriba y abajo */
+        }
+
+        /* Lista de enlaces dentro de nav */
+        nav ul {
+            list-style-type: none; /* Elimina los puntos de la lista */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Alinea los elementos en fila */
+            justify-content: center; /* Centra los enlaces horizontalmente */
+        }
+
+        /* Elementos de la lista */
+        nav ul li {
+            margin: 5px 0; /* Espacio entre los enlaces */
+        }
+
+        /* Estilo de los enlaces */
+        nav ul li a {
+            text-decoration: none; /* Elimina el subrayado */
+            color: rgb(255, 0, 0); /* Color de texto blanco */
+            font-size: 18px; /* Tamaño de fuente */
+            padding: 10px 75px; /* Espaciado interno de los enlaces */
+            display: block; /* Hace que el enlace ocupe todo el área del <li> */
+            border-radius: 10px; /* Bordes redondeados */
+            transition: background-color 0.3s ease; /* Transición suave en el cambio de color */
+        }
+
+        /* Efecto hover */
+        nav ul li a:hover {
+            background-color: #555555; /* Color de fondo al pasar el ratón */
+        }
+
+        /* Estilos para el enlace activo (cuando está seleccionado) */
+        nav ul li a.active {
+            background-color: #ff7e5f; /* Color de fondo cuando el enlace está activo */
+            color: rgb(53, 52, 52); /* Asegura que el texto se mantenga blanco */
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>¡Modelo de pagina / tercera entrega!</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'pelis' %}">PELICULAS</a></li>
+            <li><a href="{% url 'series' %}">SERIES</a></li>
+            <li><a href="{% url 'generos' %}">GENEROS</a></li>
+        </ul>
+    </nav>
+    <div>
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
